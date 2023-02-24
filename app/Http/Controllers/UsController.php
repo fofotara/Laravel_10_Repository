@@ -22,8 +22,8 @@ class UsController extends Controller
 		return ['title' => 'required', 'content' => 'required'];
 	}
 
-	function columns(array $columns)
+	function columns($columns =['*'])
 	{
-		return ['id','name'];
+		return ['name'];
 	}
 }

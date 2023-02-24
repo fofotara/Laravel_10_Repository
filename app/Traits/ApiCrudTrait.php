@@ -21,7 +21,8 @@
 		abstract function model();
 
 		abstract function validationRules($resource_id =0);
-		abstract function columns();
+		abstract function columns($columns = ['*']);
+		abstract function relations($relations = []);
 
 
 		/*
@@ -33,7 +34,7 @@
 
 			public function index(array $columns = ['*'], array $relations = []): Collection
 			{
-				return $this->model()::with($relations)->select($this->columns())->get();
+				return $this->model()::with($this->relations())->select($this->columns())->get();
 			}
 
 			public function create(Request $request)
